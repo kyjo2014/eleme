@@ -17,6 +17,36 @@ var port = process.env.PORT || config.dev.port
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+/***add mock *******/
+var appData = require('../data.json')
+var seller = appData.seller
+var goods = appData.goods
+var ratings = appData.ratings
+
+var apiRoutes = express.Router()
+
+apiRoutes.get('/seller', (req, res) => {
+  res.json({
+    errno: 0,
+    data: seller
+  })
+})
+
+apiRoutes.get('/ratings', (req, res) => {
+  res.json({
+    errno: no,
+    data: ratings
+  })
+})
+
+apiRoutes.get('/goods', (req, res) => {
+  res.json({
+    errno: 0,
+    data: goods
+  })
+})
+
+app.use('/api', apiRoutes)
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
@@ -25,7 +55,7 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {
-  log: () => {}
+  log: () => { }
 })
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
