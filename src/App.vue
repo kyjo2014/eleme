@@ -49,19 +49,21 @@
 </script>
 
 <style lang="stylus">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "./common/stylus/mixin.styl"
+#app 
+  font-family: 'Avenir', Helvetica, Arial, sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  text-align: center
+  color: #2c3e50
+  margin-top: 60px
+
   .tab
     display: flex
     width: 100%
     height: 40px
     line-height: 40px
+    border-1px(rgba(7,17,27,0.1))
     .tab-item
       flex:1
       text-align: center
@@ -71,4 +73,5 @@
         color: rgb(77,85,93)
         &.active
           color: rgb(240,20,20)
+
 </style>
