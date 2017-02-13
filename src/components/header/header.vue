@@ -21,7 +21,7 @@
                     </span>
                 </div>
             </div>
-            <div class="support-count" v-if="seller.supports">
+            <div class="support-count" @click="showDetail" v-if="seller.supports">
                 <span class="count">{{seller.supports.length}}个</span>
                 <i class="icon-keyboard_arrow_right"></i>
             </div>
@@ -33,11 +33,22 @@
         <div class="background">
             <img :src="seller.avatar" alt="">
         </div>
+        <div v-show="detailShow" class="detail"></div>
     </div>
 </template>
 
 <script>
     export default {
+        data() {
+            return {
+                detailShow: false
+            }
+        },
+        methods: {
+            showDetail() {
+                this.detailShow = true
+            }
+        },
         props: {
             seller: {
                 type: Object
@@ -54,6 +65,7 @@
     .header
         color: #fff
         position: relative
+        overflow: hidden
         background: rgba(7,17,27,0.5)
         .content-wrapper
             position: relative
@@ -163,5 +175,13 @@
             height:100%
             z-index: -1
             filter: blur(10px)
+        .detail
+            position: fixed
+            z-index:100
+            width:100%
+            height: 100%
+            overflow: auto
+            background-color rgba(7,17,27,0.8)
+            top 0px
 
 </style>
