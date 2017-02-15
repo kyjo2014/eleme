@@ -33,7 +33,29 @@
         <div class="background">
             <img :src="seller.avatar" alt="">
         </div>
-        <div v-show="detailShow" class="detail"></div>
+        <div v-show="detailShow" class="detail">
+            <div class="detail-wrapper clearfix">
+                <div class="detail-main">
+                    <p>
+                       {{seller.bulletin}} 
+                    </p>
+                    <p>
+                       {{seller.bulletin}} 
+                    </p>
+                    <p>
+                       {{seller.bulletin}} 
+                    </p>
+                    <p>
+                       {{seller.bulletin}} 
+                    </p>
+                </div>
+            </div>
+            <div class="detail-close">
+                <i class="icon-close">
+
+                </i>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -182,6 +204,28 @@
             height: 100%
             overflow: auto
             background-color rgba(7,17,27,0.8)
-            top 0px
+            top 0px 
+            .detail-wrapper
+                width 100%
+
+                min-height: 100%
+                .detail-main
+                    margin-top: 64px
+                    padding-bottom: 64px
+                    .name
+                        line-height 16px
+                        text-align center
+                        font-size 16px
+                        font-weight 700
+
+                .detail-close
+                    position: relative
+                    width: 32px
+                    height: 32px
+                    margin: -64px auto 0 auto
+                    clear both
+                    font-size 32px
 
 </style>
+
+<!-- header -->
