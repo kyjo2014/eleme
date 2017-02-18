@@ -46,6 +46,12 @@
                     margin-right: 0
                     
         &.star-36
+            width 15px
+            height 15px
+            margin-right 22px
+            background-size 20px 20px
+            &:last-child
+                margin-right 0
         &.star-24
       
 
