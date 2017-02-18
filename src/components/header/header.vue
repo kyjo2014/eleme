@@ -36,18 +36,8 @@
         <div v-show="detailShow" class="detail">
             <div class="detail-wrapper clearfix">
                 <div class="detail-main">
-                    <p>
-                       {{seller.bulletin}} 
-                    </p>
-                    <p>
-                       {{seller.bulletin}} 
-                    </p>
-                    <p>
-                       {{seller.bulletin}} 
-                    </p>
-                    <p>
-                       {{seller.bulletin}} 
-                    </p>
+                   <div class="name">{{seller.name}}</div>
+                   <star :size="48" :score="seller.score"></star>
                 </div>
             </div>
             <div class="detail-close">
@@ -60,6 +50,7 @@
 </template>
 
 <script>
+import star from '../star/star'
     export default {
         data() {
             return {
@@ -78,6 +69,9 @@
         },
         mounted() {
             this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
+        },
+        components: {
+            star
         }
     }    
 </script>
