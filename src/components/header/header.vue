@@ -33,7 +33,7 @@
         <div class="background">
             <img :src="seller.avatar" alt="">
         </div>
-        <div v-show="detailShow" class="detail">
+        <div v-show="detailShow" class="detail" transition="fade">
             <div class="detail-wrapper clearfix">
                 <div class="detail-main">
                    <div class="name">{{seller.name}}</div>
@@ -48,7 +48,7 @@
                    </div>
                 </div>
             </div>
-            <div class="detail-close">
+            <div class="detail-close" @click="hideDetail">
                 <i class="icon-close">
 
                 </i>
@@ -68,6 +68,9 @@ import star from '../star/star'
         methods: {
             showDetail() {
                 this.detailShow = true
+            },
+            hideDetail() {
+                this.detailShow = false
             }
         },
         props: {
@@ -146,6 +149,14 @@ import star from '../star/star'
                     .text
                         line-height: 10px
                         font-size: 10px
+                .bulletin
+                    width 80%
+                    margin 0 auto
+                    .content 
+                        padding 0 12px
+                        line-height 24px
+                        font-size 12px
+
             .support-count
                 position:absolute  
                 right: 12px
@@ -205,8 +216,16 @@ import star from '../star/star'
             width:100%
             height: 100%
             overflow: auto
+            transition all 0.5s
+            backdrop-filter blur(10px)
             background-color rgba(7,17,27,0.8)
             top 0px 
+            &.fade-transition
+                opacity: 1
+                background rgba(7,17,27,0.8)
+            &.fade-enter,&.fade-leave
+                opacity 0
+                background rgba(7,17,27,0)
             .detail-wrapper
                 width 100%
 
